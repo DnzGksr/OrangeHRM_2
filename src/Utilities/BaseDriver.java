@@ -37,7 +37,7 @@ public class BaseDriver {
     public static void closePreviousDriver(){  // works just for chrome
         try {
             if (System.getProperty("os.name").toLowerCase().contains("win"))
-                Runtime.getRuntime().exec("taskkill /F /IM Chromeriver.exe /T");
+                Runtime.getRuntime().exec("taskkill /F /IM Chromedriver.exe /T");
             else
                 Runtime.getRuntime().exec("killall chromedriver");
 
