@@ -23,7 +23,7 @@ public void upperCasePwTest() throws IOException {
 
     try {
         Assert.assertEquals("rgba(235, 9, 16, 1)", errorElement.getCssValue("color"));
-        Assert.assertEquals(errorElement.getText(), expectedText);
+        Assert.assertEquals( expectedText,errorElement.getText());
     }
     catch (ComparisonFailure ex){
 
