@@ -1,5 +1,6 @@
 package Utilities;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -13,7 +14,7 @@ public class BaseDriver {
     public static WebDriver driver;
 
     static {
-        //closePreviousDriver();
+       closePreviousDriver();
         Logger logger = Logger.getLogger("");
         logger.setLevel(Level.SEVERE);
 
@@ -35,9 +36,31 @@ public class BaseDriver {
     }
     public static void closePreviousDriver(){  // works just for chrome
         try {
-            Runtime.getRuntime().exec("taskkill /F /IM Chromeriver.exe /T");
+            if (System.getProperty("os.name").toLowerCase().contains("win"))
+                Runtime.getRuntime().exec("taskkill /F /IM Chromeriver.exe /T");
+            else
+                Runtime.getRuntime().exec("killall chromedriver");
+
+
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void adminLoginNavigateToAddUser(){
+        try {
+            driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+            driver.findElement(By.name("username")).sendKeys("Admin");
+            driver.findElement(By.name("password")).sendKeys("admin123");
+            driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+            driver.findElement(By.cssSelector("ul[class=\"oxd-main-menu\"]>:nth-child(1)")).click();
+            driver.findElement(By.cssSelector("button[class$='secondary']")).click();
+        }
+        catch (Exception ex ){
+            System.out.println("Navigate Error ---> " +ex);
+        }
+
+
     }
 }
