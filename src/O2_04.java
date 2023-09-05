@@ -19,7 +19,7 @@ public class O2_04 extends BaseDriver {
 
         WebElement errorMessage = driver.findElement(By.xpath("//span[text()='Passwords do not match']"));
 
-        Assert.assertEquals("rgba(235, 9, 16, 1)", errorMessage.getCssValue("color"));
+        Assert.assertEquals("rgb(235, 9, 16)", errorMessage.getCssValue("color"));
         Assert.assertEquals(message, errorMessage.getText());
 
         waitAndQuit();
