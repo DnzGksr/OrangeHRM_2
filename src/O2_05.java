@@ -42,10 +42,14 @@ public class O2_05 extends BaseDriver {
 
         Assert.assertTrue(invalid.isDisplayed());
 
-        waitAndQuit();
+
+        if (invalid.getText().equals("Required") && invalid.getCssValue("Color").equals("#eb0910")) {
+            Assert.assertTrue(invalid.isDisplayed());
+
+            waitAndQuit();
 
 
+        }
 
     }
-
 }

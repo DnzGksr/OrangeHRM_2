@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public class O2_11 extends BaseDriver {
     @Test
-    public void Us11(){
+    public void Us11() {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement username = driver.findElement(By.xpath("//input[@name=\"username\"]"));
         username.sendKeys("Admin");
@@ -30,22 +30,24 @@ public class O2_11 extends BaseDriver {
         MyMethods.waiting_Time(2);
 
 
-
         WebElement password = driver.findElement(By.xpath("(//input[@type='password'])[1]"));
         password.sendKeys("abcde");
 
 
+        WebElement ErrorMessage = driver.findElement(By.xpath("//span[text()='Should have at least 7 characters']"));
 
-        WebElement RedMessage = driver.findElement(By.xpath("//span[text()='Should have at least 7 characters']"));
+        Assert.assertTrue(ErrorMessage.isDisplayed());
 
-        Assert.assertTrue(RedMessage.isDisplayed());
+        if (ErrorMessage.getText().equals("Required") && ErrorMessage.getCssValue("Color").equals("#eb0910")) {
+            Assert.assertTrue(ErrorMessage.isDisplayed());
 
-        waitAndQuit();
+
+            waitAndQuit();
 
 
+        }
 
     }
-
 }
 
 
