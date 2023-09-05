@@ -57,7 +57,7 @@ public class O2_03 extends BaseDriver {
                     Assert.assertTrue(error.isDisplayed());
                     Assert.assertEquals("Required", error.getText());
                     Assert.assertEquals("rgb(235, 9, 16)",error.getCssValue("Color"));
-
+                     //
             }
 
             waitAndQuit();
