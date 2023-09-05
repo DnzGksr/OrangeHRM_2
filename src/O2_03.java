@@ -54,9 +54,10 @@ public class O2_03 extends BaseDriver {
             List<WebElement> errorMessage = driver.findElements(By.xpath("//span[text()='Required']"));
             for (WebElement error : errorMessage) {
 
-                if (error.getText().equals("Required") && error.getCssValue("Color").equals("#eb0910")) {
                     Assert.assertTrue(error.isDisplayed());
-                }
+                    Assert.assertEquals("Required", error.getText());
+                    Assert.assertEquals("rgb(235, 9, 16)",error.getCssValue("Color"));
+                     //
             }
 
             waitAndQuit();
