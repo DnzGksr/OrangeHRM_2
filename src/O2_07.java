@@ -13,8 +13,8 @@ public class O2_07 extends BaseDriver {
     void O2_O7() {
 
         adminLoginNavigateToAddUser();
-        WebElement username = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input"));
-        username.sendKeys("Cheeku");
+        WebElement username1 = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input"));
+        username1.sendKeys("Cheeku");
         WebElement readErrorMsg = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/span"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         boolean isAlreadyExistsMessageDisplayed = wait.until(ExpectedConditions.textToBePresentInElement(readErrorMsg, "Already exists"));
