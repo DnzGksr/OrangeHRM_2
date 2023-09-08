@@ -1,5 +1,5 @@
 import Utilities.BaseDriver;
-import org.apache.commons.io.FileUtils;
+//import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.junit.ComparisonFailure;
 import org.junit.Test;
@@ -31,7 +31,7 @@ public void upperCasePwTest() throws IOException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM_dd_yyyy_hh_mm_ss");
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File screenshotInTemporaryFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(screenshotInTemporaryFile,new File("screenShots/screenshot"+localDateTime.format(formatter)+".png"));
+        //FileUtils.copyFile(screenshotInTemporaryFile,new File("screenShots/screenshot"+localDateTime.format(formatter)+".png"));
         throw  new AssertionError(ex);
 
     }

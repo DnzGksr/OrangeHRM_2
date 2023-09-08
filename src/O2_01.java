@@ -71,9 +71,9 @@ public class O2_01  extends BaseDriver {
         WebElement submit = driver.findElement(By.cssSelector("button[type=\"submit\"]"));
         submit.click();
 
-        WebElement succsessfull = driver.findElement(By.cssSelector("div[class=\"oxd-toast-start\"]"));
-        wait.until(ExpectedConditions.visibilityOf(succsessfull));
-        Assert.assertTrue(succsessfull.getText().contains("Success"));
+        WebElement successful = driver.findElement(By.cssSelector("div[class=\"oxd-toast-start\"]"));
+        wait.until(ExpectedConditions.visibilityOf(successful));
+        Assert.assertTrue(successful.getText().contains("Success"));
 
 
 
